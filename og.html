@@ -1,49 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Sounds</title>
+    <meta name="title" content="Cosmic Sounds" />
+    <meta
+      name="description"
+      content="Launch a galaxy of out-of-context sounds. Crafted for quick chaos by 48Okqy."
+    />
+    <meta name="robots" content="index, follow" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/spinner.css" />
+    <link rel="manifest" href="./manifest.json" />
     <link rel="icon" href="img/mlg-favicon.png" />
     <link rel="shortcut icon" href="img/mlg-favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/mlg-favicon.png" type="image/x-icon" />
-    <title>Online Soundboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Online Soundboard" />
-    <meta name="description" content="A collection of sounds to play out of context. Perfect for school! Just play it when your teacher is talking and I bet they will love it!" />
-    <meta name="robots" content="index, follow" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="manifest" href="./manifest.json" />
-    <link rel="stylesheet" href="css/spinner.css" />
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
           .register("/sw.js")
-          .then(function (registration) {
+          .then((registration) => {
             console.log("Service worker registered:", registration);
           })
-          .catch(function (error) {
+          .catch((error) => {
             console.log("Service worker registration failed:", error);
           });
       }
     </script>
   </head>
   <body>
-    <h1>Online Soundboard</h1>
-    <h2>
-      Just click on the colorful buttons to play the sound.<br />
-      <a href="https://forms.gle/hoiTBEZ4p14iupXH6">Click here to submit a sound to be added!</a><br />
-    </h2>
-    <div class="control">
-      Audio Controls
-      <button class="woah" onclick="javascript:playAll()">Provoke Chaos</button>
-      <button class="woah" onclick="javascript:stopAll()">Stop Everything</button>
-    </div>
+    <div class="cosmic-grid"></div>
+    <div class="parallax parallax--aurora"></div>
+    <div class="parallax parallax--rings"></div>
+    <div class="stars stars--near"></div>
+    <div class="stars stars--far"></div>
 
-    <div class="soundboard-container">
-      <div class="flex-container">
-        <div class="spinner"></div>
+    <header class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__badge">48Okqy</div>
+      <div class="hero__text">
+        <p class="eyebrow">Online soundboard</p>
+        <h1>Cosmic Sounds</h1>
+        <p class="lede">A galactic deck of chaos, now with delayed blasts and echo bursts.</p>
+        <div class="hero__actions">
+          <a class="btn" href="https://forms.gle/hoiTBEZ4p14iupXH6" target="_blank" rel="noreferrer">Submit a sound</a>
+          <div class="control">
+            <span class="control__label">Audio control</span>
+            <div class="control__actions">
+              <button class="ghost" onclick="javascript:playAll()">Play galaxy</button>
+              <button class="ghost" onclick="javascript:stopAll()">Silence</button>
+            </div>
+          </div>
+        </div>
+        <div class="hero__panel">
+          <div>
+            <p class="panel__title">Dynamic delays</p>
+            <p class="panel__body">Arm a sound to launch up to 20s later, or cancel before liftoff.</p>
+          </div>
+          <div>
+            <p class="panel__title">Echo bursts</p>
+            <p class="panel__body">Double-fire clips for extra impact and stereo feel.</p>
+          </div>
+          <div>
+            <p class="panel__title">Cosmic polish</p>
+            <p class="panel__body">Animated nebulae, holo buttons, and glowing orbital badges.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <p id="footer">3kh0 © 2023</p>
+    </header>
+
+    <main class="soundboard">
+      <div class="soundboard__header">
+        <div>
+          <p class="label">Live deck</p>
+          <div class="hint">Sounds appear below once loaded. Arm delays or trigger echoes.</div>
+        </div>
+        <div class="legend">
+          <span class="legend__dot legend__dot--delay"></span>Delayed launch
+          <span class="legend__dot legend__dot--echo"></span>Echo burst
+        </div>
+      </div>
+      <div class="soundboard-container">
+        <div class="flex-container">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Cosmic Sounds by 48Okqy</p>
+    </footer>
+
     <script type="application/javascript" src="loader.js"></script>
   </body>
 </html>
