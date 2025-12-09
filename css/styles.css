@@ -1,2 +1,277 @@
-/* Unminify the code here: https://unminify.com/ */
-* {margin: 0;padding: 0;box-sizing: border-box;font-family: Arial, sans-serif;}body {background-color: #f7f7f7;font-size: 16px;}h1 {font-size: 3rem;margin: 2rem 0;text-align: center;}h2 {font-size: 1.5rem;margin: 2rem 0;text-align: center;}a {color: #0066cc;text-decoration: none;}a:hover {text-decoration: underline;}.container {max-width: 800px;margin: 0 auto;padding: 2rem;}.sound {display: flex;flex-direction: column;align-items: center;justify-content: space-between;width: 100px;height: 170px;background-color: #fff;border-radius: 8px;box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);transition: transform 0.2s ease-in-out;}.sound:hover {transform: translateY(-5px);}.sound:focus-within {outline: none;transform: translateY(-5px);}.small-button {width: 100px;height: 89px;border: none;background-color: #e7e7e7;background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");background-repeat: no-repeat;background-position: center;background-size: 48px;border-radius: 8px;transition: background-color 0.2s ease-in-out;}.sound:hover .small-button {background-color: #ccc;}.small-button:focus {outline: none;}.name {text-align: center;font-size: 14px;font-weight: bold;margin: 1rem 0 0;}.download {display: block;text-align: center;font-size: 12px;color: #0066cc;text-decoration: none;margin: 0.5rem 0;transition: color 0.2s ease-in-out;}.download:hover {color: #004499;}.flex-container {display: flex;flex-wrap: wrap;justify-content: center;align-items: center;gap: 20px;padding: 20px;background-color: #f5f5f5;border-radius: 10px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);}.control {position: fixed;bottom: 0;right: 0;margin: 1rem;padding: 0.5rem;background-color: #fff;border-radius: 8px;box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);z-index: 10;}.control button {margin-left: 0.5rem;font-size: 16px;color: #0066cc;border: none;background-color: transparent;cursor: pointer;transition: color 0.2s ease-in-out;}.control button:hover {color: #004499;}#footer {bottom: 0;width: 100%;padding: 20px 0;text-align: center;font-size: 14px;color: #262626;background-color: #fff;box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);}@media only screen and (max-width: 768px) {.container {padding: 1rem;}h1 {font-size: 2rem;margin: 1rem 0;}h2 {font-size: 1.25rem;margin: 1rem 0;}.sound {width: 80px;height: 136px;}.small-button {width: 80px;height: 76px;background-size: 40px;border-radius: 6px;}.name {font-size: 12px;}.download {font-size: 10px;margin: 0.25rem 0;}.control {margin: 0.5rem;padding: 0.25rem;}.control button {font-size: 14px;}}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(132, 56, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(32, 190, 255, 0.15), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(255, 89, 173, 0.14), transparent 30%),
+    #050713;
+  color: #eaf1ff;
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+  padding: 24px;
+}
+
+.cosmic-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.35;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 65%);
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(15, 19, 38, 0.65);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: linear-gradient(120deg, #6f8fff, #a55bff, #ff6eb6);
+  border-radius: 999px;
+  color: #040515;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+  box-shadow: 0 10px 30px rgba(165, 91, 255, 0.45);
+}
+
+.hero__text {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #96b1ff;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f6fbff;
+}
+
+.lede {
+  color: #cfd9f8;
+  max-width: 680px;
+  font-size: 18px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7cc9ff, #6f7cff 40%, #c15cff);
+  color: #040515;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 14px 30px rgba(111, 124, 255, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(193, 92, 255, 0.3);
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.control__label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #93a5ff;
+}
+
+.control__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ghost {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f6fbff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.soundboard {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(12, 15, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.soundboard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #86b7ff;
+  font-size: 13px;
+}
+
+.hint {
+  color: #9fb4e9;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.soundboard-container {
+  position: relative;
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.sound {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sound:hover,
+.sound:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.small-button {
+  width: 100%;
+  aspect-ratio: 1.1;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.02));
+  background-blend-mode: screen;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 12px 25px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sound:hover .small-button,
+.small-button:focus {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 18px 30px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.name {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f6fbff;
+}
+
+#footer,
+.footer {
+  text-align: center;
+  color: #a8b7e8;
+  font-size: 14px;
+  padding: 22px 0 8px;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 18px;
+  }
+
+  .hero,
+  .soundboard {
+    padding: 20px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .control {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
